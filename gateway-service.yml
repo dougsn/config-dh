@@ -4,16 +4,11 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: subscriptionRoute
-          uri: lb://SUBSCRIPTION-SERVICE
+        - id: catalogRoute
+          uri: lb://CATALOG-SERVICE
           predicates:
             - Path=//subscription/**
-          filters:
-            - name: SubscriptionFilter
-        - id: courseRoute
-          uri: lb://COURSE-SERVICE
+        - id: movieRoute
+          uri: lb://MOVIE-SERVICE
           predicates:
             - Path=/course/**
-          filters:
-            - AddRequestHeader=course-request-header, custom-course-request-header
-            - AddResponseHeader=course-response-header, custom-course-response-header
