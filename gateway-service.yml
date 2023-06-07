@@ -16,6 +16,10 @@ spring:
           uri: lb://COURSE-SERVICE
           predicates:
             - Path=/course/**
+        - id: studentRoute
+          uri: lb://STUDENT-SERVICE
+          predicates:
+            - Path=/student/**
           filters:
             - AddRequestHeader=course-request-header, custom-course-request-header
             - AddResponseHeader=course-response-header, custom-course-response-header
