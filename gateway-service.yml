@@ -18,6 +18,14 @@ spring:
           uri: lb://STUDENT-SERVICE
           predicates:
             - Path=/student/**
+         - id: catalogRoute
+          uri: lb://CATALOG-SERVICE
+          predicates:
+            - Path=/catalog/**
+        - id: movieRoute
+          uri: lb://MOVIE-SERVICE
+          predicates:
+            - Path=/movie/**    
           filters:
             - AddRequestHeader=course-request-header, custom-course-request-header
             - AddResponseHeader=course-response-header, custom-course-response-header
