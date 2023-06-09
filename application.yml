@@ -3,21 +3,19 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka/
 management:
+  health:
+    circuitbreakers:
+      enabled: true
   info:
     env:
       enabled: true
   endpoints:
     web:
       exposure:
-        include:  circuitbreakers,circuitbreakerevents,health,info
+        include: health,info,circuitbreakers,circuitbreakerevents
   endpoint:
     health:
-     circuitbreakers:
-      enabled: true
       show-details: always
-    endpoint:
-      health:
-        show-details: always
 info:
   author: Douglas S. Nascimento
   mail: douglassnascimet@gmail.com
